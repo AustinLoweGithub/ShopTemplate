@@ -79,7 +79,7 @@ namespace ShopTemplate.Api.Repositories
                          join cartItem in this.shopTemplateDbContext.CartItems
                          on cart.Id equals cartItem.CartId
                          where cartItem.Id == id
-                         select new CartItem
+                          select new CartItem
                          {
                              Id = cartItem.Id,
                              ProductId = cartItem.ProductId,
@@ -111,9 +111,17 @@ namespace ShopTemplate.Api.Repositories
                           
         }
 
-        public Task<CartItem> UpdateQty(int id, CartItemQtyUpdateDto cartItemQtyUpdateDto)
+        public async Task<CartItem> UpdateQty(int id, CartItemQtyUpdateDto cartItemQtyUpdateDto)
         {
-            throw new NotImplementedException();
+            var item = await this.shopTemplateDbContext.CartItems.FindAsync(id);
+
+            if (item != null)
+            {
+                item.Qty = cartItemQtyUpdateDto.Qty;
+                await this.shopTemplateDbContext.SaveChangesAsync();
+                return item;
+            }
+            return null;
         }
     }
 }
