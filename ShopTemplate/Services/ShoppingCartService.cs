@@ -10,12 +10,16 @@ namespace ShopTemplate.Web.Services
     {
 
         private readonly HttpClient httpClient;
+
+        public event Action<int> OnShoppingCartChanged;
         public ShoppingCartService(HttpClient httpClient)
         {
 
             this.httpClient = httpClient;
 
         }
+
+        
 
         public async Task<CartItemDto> AddItem(CartItemToAddDto cartItemToAddDto)
         {
@@ -108,6 +112,14 @@ namespace ShopTemplate.Web.Services
 
             }
 
+        }
+
+        public void RaiseEventOnShoppingCartChanged(int totalQty)
+        {
+            if(OnShoppingCartChanged != null)
+            {
+                OnShoppingCartChanged.Invoke(totalQty);
+            }
         }
 
         public async Task<CartItemDto> UpdateQty(CartItemQtyUpdateDto cartItemQtyUpdateDto)

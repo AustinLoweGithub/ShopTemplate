@@ -13,5 +13,8 @@ namespace ShopTemplate.web.Services.Contracts
 
         Task<CartItemDto> UpdateQty(CartItemQtyUpdateDto cartItemQtyUpdateDto);
 
+        event Action<int> OnShoppingCartChanged;
+        void RaiseEventOnShoppingCartChanged(int totalQty);
+
     }
 }

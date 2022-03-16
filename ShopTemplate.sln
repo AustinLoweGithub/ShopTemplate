@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopTemplate.Web", "ShopTem
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopTemplate.Api", "ShopTemplate.API\ShopTemplate.Api.csproj", "{ACF0BCA5-7E6C-497A-9D07-DD225341D795}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopTemplate.Models", "ShopTemplate.Models\ShopTemplate.Models.csproj", "{FF0BD8F4-1320-4114-B705-646061C22169}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopTemplate.Models", "ShopTemplate.Models\ShopTemplate.Models.csproj", "{FF0BD8F4-1320-4114-B705-646061C22169}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
